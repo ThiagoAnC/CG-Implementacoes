@@ -73,20 +73,24 @@ void display(){
     static float angle = 0;
     angle += 0.5f;
 
+	//cubo rosa
     glPushMatrix();
         glTranslatef(0,0,-30);
-        glRotatef(-0.001, -angle, 0.0, 0.0);
-        glColor3ub(255,0,255);
+        glRotatef(-0.4, -angle, 0.9, 0.0);
+        glColor3ub(255,13,255);
         glutSolidCube(5);
     glPopMatrix();
 
+	//cubo do fundo
     glPushMatrix();
         glTranslatef(0, 0,-40);
         glRotatef(angle, 0.1, 0.2, 0.5);
-        glColor3ub(255,0,0);
+        glColor3ub(255,13,0);
         glutSolidCube(5);
     glPopMatrix();
 
+	
+	//cubo vermelho
 	glPushMatrix();
         glTranslatef(10,-10,-40);
         glRotatef(angle, 0.1, 0.2, 0.5);
@@ -94,6 +98,7 @@ void display(){
         glutSolidCube(5);
     glPopMatrix();
 	
+	//cubo verde
     glPushMatrix();
         glTranslatef(10,10,-20);
         glRotatef(angle, 0.1, 0.2, 0.5);
@@ -101,15 +106,18 @@ void display(){
         glutSolidCube(5);
     glPopMatrix();
 
+
+	//cubo azul
     glPushMatrix();
-        glTranslatef(-10,10,0);
+        glTranslatef(-10,10,-30);
         glRotatef(angle, 0.1, 0.2, 0.0);
         glColor3ub(0,0,255);
         glutSolidCube(5);
     glPopMatrix();
 
+	//cubo amarelo
     glPushMatrix();
-        glTranslatef(-10,-10,5);
+        glTranslatef(-10,-10,-20);
         glRotatef(angle, 0.1, 0.2, 0.5);
         glColor3ub(255,255,0);
         glutSolidCube(5);
