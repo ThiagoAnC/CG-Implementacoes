@@ -31,15 +31,13 @@ void projecaoPerspectiva(GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdoubl
 void projecaoOrtogonal(GLdouble xmin, GLdouble xmax, GLdouble ymin, GLdouble ymax, GLdouble zNear, GLdouble zFar){ 
     GLdouble m[16] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-    m[0 + 4 * 0] = 2 / (xmax - xmin); 
+    m[0 + 4 * 0] = 1/xmax; 
 
-    m[1 + 4 * 1] = 2 / (ymax - ymin); 
+    m[1 + 4 * 1] = 1/ymax;
 
     m[2 + 4 * 2] = -2 / (zFar - zNear); 
 
-    m[3 + 4 * 0] = -(xmax + xmin) / (xmax - xmin); 
-    m[3 + 4 * 1] = -(ymax + ymin) / (ymax - ymin); 
-    m[3 + 4 * 2] = -(zFar + zNear) / (zFar - zNear); 
+    m[2 + 4 * 3] = -(zFar + zNear)/(zFar-zNear);
     m[3 + 4 * 3] = 1; 
     
     glMultMatrixd(m);
@@ -62,8 +60,8 @@ void display(){
     double aspect = (double)viewport[2] / (double)viewport[3];
     
     
-    projecaoPerspectiva(90, aspect, 1, 100);
-    //projecaoOrtogonal(0, 4, 0, 4, 10, 40);
+    //projecaoPerspectiva(90, aspect, 1, 100);
+    projecaoOrtogonal(0, 40, 0, 40, 1, 200);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
